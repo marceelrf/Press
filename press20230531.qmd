@@ -1,0 +1,122 @@
+---
+title: "Accurate profiling of forensic autosomal STRs using the Oxford Nanopore Technologies MinION device"
+format: revealjs
+editor: visual
+footer: "31/05 | Marcel Ferreira"
+slide-number: true
+auto-stretch: true
+logo: "img/lgmb.png"
+bibliography: references.bib
+---
+
+## Paper
+
+[![](img/paper20230531.png)](https://www.sciencedirect.com/science/article/pii/S1872497321001654?via%3Dihub)
+
+## Oxford Nanopore Technologies (ONT)
+
+[![](img/ONT1.png)](https://www.nature.com/articles/s41587-021-01108-x)
+
+## Oxford Nanopore Technologies (ONT)
+
+![How nanopore works](img/MinION_GIF_08.gif)
+
+## MinION
+
+::: columns
+::: {.column width="50%"}
+[![MinION](img/MinIOn-5_0-e1517353762869-1200x935.webp)](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.forbes.com%2Fsites%2Fjanetwburns%2F2018%2F01%2F29%2Fhandheld-device-gives-clearest-ever-view-of-human-genome-for-1000%2F&psig=AOvVaw1peuCCj6cuMcyL1kcLH4QF&ust=1685470519470000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCLjAuZaRm_8CFQAAAAAdAAAAABAE)
+:::
+
+::: {.column width="50%"}
+[![VolTRAX II](img/sequence-voltrax.png)](https://www.google.com/url?sa=i&url=https%3A%2F%2Fnanoporetech.com%2Fproducts%2Fvoltrax&psig=AOvVaw31cwYw9-gZVqnGjt0XwGPA&ust=1685470582008000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCOjeo7SRm_8CFQAAAAAdAAAAABAE)
+:::
+:::
+
+## Background
+
+-   In forensic genetic analyses, the high variability of short tandem repeat (`STR`) markers is utilized for human identification;
+
+-   Despite the efficacy and dependability of existing typing methods, sequence-level information within and surrounding `STRs` is obscured in length-based profiles;
+
+-   As an alternative to conventional capillary electrophoresis (`CE`) techniques, forensic `STR` typing with next-generation sequencing (`NGS`) has gained popularity;
+
+## Background
+
+-   This research evaluates the forensic utility of the newest and smallest accessible NGS platform, the Oxford Nanopore Technologies (`ONT`) MinION instrument;
+
+-   Despite the fact that nanopore sequencing on the handheld MinION offers various benefits, including as low setup costs and on-site sample processing, the relatively high error rate and lack of forensic-specific analysis tools has hampered proper profiling across `STR` panels in prior research;
+
+-   **STRspy** is a simplified approach for obtaining length- and sequence-based `STR` allele designations from noisy, error-prone third generation sequencing reads.
+
+## Methods
+
+![Fig. 1. STR sequencing and profiling with STRspy](img/fig1.png)
+
+## Benchmarking
+
+::: columns
+::: {.column width="50%"}
+![Fig. 2. STR sequencing and profiling with STRspy](img/fig2.png)
+:::
+
+::: {.column width="50%"}
+[![Confusion matrix](img/confusionmatrix.png){width="450"}](https://www.google.com/url?sa=i&url=https%3A%2F%2Frasbt.github.io%2Fmlxtend%2Fuser_guide%2Fevaluate%2Fconfusion_matrix%2F&psig=AOvVaw1pMc2_92-HSoVCr1yimxqX&ust=1685446907783000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIifjpy5mv8CFQAAAAAdAAAAABAS)
+:::
+:::
+
+## Benchmarking
+
+::: columns
+::: {.column width="50%"}
+![Fig. 2. STR sequencing and profiling with STRspy](img/fig2.png)
+:::
+
+::: {.column width="50%"}
+$Recall(TPR) = \frac{TP}{TP + FN}$
+
+$Precision = \frac{TP}{TP+TN}$
+
+$F1 score = \frac{2TP}{2TP + FP + FN}$
+:::
+:::
+
+## Slide 1
+
+![Fig. 3. STR allele designations.](img/fig3.png)
+
+## Slide 2
+
+![STRspy resolves isoalleles.](img/table1.png)
+
+## Slide 3
+
+![Fig. 4. Genotyping errors. Part 1](img/fig4.png)
+
+## Slide 3
+
+![Fig. 4. Genotyping errors. Part 2](img/fig4_2.png)
+
+## Slide 3
+
+![Fig. 4. Genotyping errors. Part 3](img/fig4_3.png)
+
+## Slide 4
+
+![Table 2. SNP benchmarking.](img/table2.png)
+
+## Highlights
+
+-   `STRs` can be sequenced on the Oxford Nanopore Technologies MinION device;
+
+-   **STRspy** produces accurate autosomal `STR` profiles from long-read sequencing data;
+
+-   **STRspy** correctly profiled 22 `STRs` amplified at 30 PCR cycles across all samples;
+
+-   Isoalleles can be resolved in nanopore sequencing reads when analyzed with **STRspy**;
+
+-   `SNPs` in the flanking regions were detected with \> 90% accuracy for the 15-cycle dataset;
+
+## References
+
+-   https://www.youtube.com/watch?v=Kdsp6soqA7o
