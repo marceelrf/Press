@@ -332,19 +332,15 @@
 <section id="paper" class="slide level2">
 <h2>Paper</h2>
 
-<img data-src="img/paper20230531.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="img/paper20230531.png" class="r-stretch quarto-figure-center"><p class="caption">-</p></section>
 <section id="oxford-nanopore-technologies-ont" class="slide level2">
 <h2>Oxford Nanopore Technologies (ONT)</h2>
 
-<img data-src="img/ONT1.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="img/ONT1.png" class="r-stretch quarto-figure-center"><p class="caption">-</p></section>
 <section id="oxford-nanopore-technologies-ont-1" class="slide level2">
 <h2>Oxford Nanopore Technologies (ONT)</h2>
 
 <img data-src="img/MinION_GIF_08.gif" class="r-stretch quarto-figure-center"><p class="caption">How nanopore works</p></section>
-<section id="oxford-nanopore-technologies-ont-2" class="slide level2">
-<h2>Oxford Nanopore Technologies (ONT)</h2>
-
-<img data-src="https://nanoporetech.com/sites/default/files/s3/How%20it%20works/Basecalling/MinION_GIF_08.gif" class="r-stretch quarto-figure-center"><p class="caption">How nanopore works</p></section>
 <section id="minion" class="slide level2">
 <h2>MinION</h2>
 <div class="columns">
@@ -385,8 +381,60 @@
 <h2>Methods</h2>
 
 <img data-src="img/fig1.png" class="r-stretch quarto-figure-center"><p class="caption">Fig. 1. STR sequencing and profiling with STRspy</p></section>
-<section id="benchmarking" class="slide level2">
-<h2>Benchmarking</h2>
+<section id="methods-1" class="slide level2">
+<h2>Methods</h2>
+<ul>
+<li><p>Six NIST traceable standards and one Promega control (female n = 2; male n = 5) ;</p></li>
+<li><p>Promega PowerSeq 46GY System (PS4600);</p>
+<ul>
+<li>15 or 30 cycles;</li>
+</ul></li>
+<li><p>Nanopore library preparation and sequencing;</p>
+<ul>
+<li><p>Purified PCR products were multiplexed and prepared for nanopore sequencing;</p></li>
+<li><p>vR9.4D flow cells (FLO-MIN106D, ONT);</p></li>
+<li><p>MinION;</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="methods---strspy" class="slide level2">
+<h2>Methods - STRspy</h2>
+<ul>
+<li><p>STR sequencing data for 1036 samples published under the STRSeq BioProject (NIST 1036);</p></li>
+<li><p>STR database used includes alleles for the 22 PowerSeq autosomal loci along with 500 bp flanks from hg19/GRCh37;</p></li>
+<li><p><strong>STRspy</strong> accepts fastq or bam files;</p></li>
+<li><p>Users are also required to provide bed and fasta files for the STR database;</p></li>
+<li><p><strong>STRspy</strong> executes the following three steps in a per sample manner;</p></li>
+</ul>
+</section>
+<section id="methods---strspy-1" class="slide level2">
+<h2>Methods - <strong>STRspy</strong></h2>
+<ol type="1">
+<li>Basecalled reads are first aligned to the human reference genome (hg19/GRCh37) (<code>minimap2</code>). Subsequently, the mapped reads are automatically converted and sorted into a bam file (<code>samtools</code>);</li>
+<li>Bam file is processed to extract reads that overlap <code>STR</code> loci of interest based on the locations specified in the user-provided bed file (<code>bedtools</code>). Extracted locus-specific reads are then mapped to the predefined collection of alleles (<code>minimap2</code>).</li>
+</ol>
+</section>
+<section id="methods---strspy-2" class="slide level2">
+<h2>Methods - <strong>STRspy</strong></h2>
+<ol start="3" type="1">
+<li>Compute the number of reads in the sorted bam (<code>samtools</code>). Calculates locus-specific normalized read counts. Normalized read counts to rank the STR alleles at each locus and reports either a single allele (homozygous) or the top two alleles (heterozygous) using a threshold of 0.4;</li>
+<li><code>xAtlas</code> was used to detect SNPs within the flanking region in the STR database and region bed file. The vcf file was filtered to keep SNPs with p-value of 0.8 or higher. 30 cycles samples were subsampled to 1% of total mapped reads (<code>samtools</code>).</li>
+</ol>
+</section>
+<section id="methods---strspy-3" class="slide level2">
+<h2>Methods - STRspy</h2>
+
+<img data-src="img/strspy.png" class="r-stretch quarto-figure-center"><p class="caption">Workflow</p></section>
+<section id="methods-2" class="slide level2">
+<h2>Methods</h2>
+<ul>
+<li><p><code>Guppy</code> was used to basecalling (Q-score &gt; 7);</p></li>
+<li><p>Merged fastq files from the 7 samples amplified (15 and 30 cycles) were processed with <strong>STRspy</strong>;</p></li>
+<li><p>Manufacturer-validated genotypes served as the truth values for assessing the <strong>STRspy</strong> performance.</p></li>
+</ul>
+</section>
+<section id="results---benchmarking" class="slide level2">
+<h2>Results - Benchmarking</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -405,8 +453,8 @@
 </div>
 </div>
 </section>
-<section id="benchmarking-1" class="slide level2">
-<h2>Benchmarking</h2>
+<section id="results---benchmarking-1" class="slide level2">
+<h2>Results - Benchmarking</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -422,30 +470,33 @@
 </div>
 </div>
 </section>
-<section id="slide-1" class="slide level2">
-<h2>Slide 1</h2>
+<section id="str-allele-designations" class="slide level2">
+<h2>STR allele designations</h2>
 
-<img data-src="img/fig3.png" class="r-stretch quarto-figure-center"><p class="caption">Fig. 3. STR allele designations.</p></section>
-<section id="slide-2" class="slide level2">
-<h2>Slide 2</h2>
+<img data-src="img/fig3.png" class="r-stretch quarto-figure-center"><p class="caption">Fig. 3. Heatmap comparison of STRspy predictions to manufacturer-verified length- and sequence-based genotypes.</p></section>
+<section id="strspy-resolves-isoalleles" class="slide level2">
+<h2>STRspy resolves isoalleles</h2>
 
 <img data-src="img/table1.png" class="r-stretch quarto-figure-center"><p class="caption">STRspy resolves isoalleles.</p></section>
-<section id="slide-3" class="slide level2">
-<h2>Slide 3</h2>
+<section id="genotyping-errors" class="slide level2">
+<h2>Genotyping errors</h2>
 
 <img data-src="img/fig4.png" class="r-stretch quarto-figure-center"><p class="caption">Fig. 4. Genotyping errors. Part 1</p></section>
-<section id="slide-3-1" class="slide level2">
-<h2>Slide 3</h2>
+<section id="genotyping-errors-1" class="slide level2">
+<h2>Genotyping errors</h2>
 
 <img data-src="img/fig4_2.png" class="r-stretch quarto-figure-center"><p class="caption">Fig. 4. Genotyping errors. Part 2</p></section>
-<section id="slide-3-2" class="slide level2">
-<h2>Slide 3</h2>
+<section id="genotyping-errors-2" class="slide level2">
+<h2>Genotyping errors</h2>
 
 <img data-src="img/fig4_3.png" class="r-stretch quarto-figure-center"><p class="caption">Fig. 4. Genotyping errors. Part 3</p></section>
-<section id="slide-4" class="slide level2">
-<h2>Slide 4</h2>
+<section id="snp-benchmarking" class="slide level2">
+<h2>SNP benchmarking</h2>
 
 <img data-src="img/table2.png" class="r-stretch quarto-figure-center"><p class="caption">Table 2. SNP benchmarking.</p></section>
+<section id="discussion" class="slide level2">
+<h2>Discussion</h2>
+</section>
 <section id="highlights" class="slide level2">
 <h2>Highlights</h2>
 <ul>
@@ -460,6 +511,9 @@
 <h2>References</h2>
 <ul>
 <li>https://www.youtube.com/watch?v=Kdsp6soqA7o</li>
+<li>https://github. com/unique379r/strspy</li>
+<li>https://ars.els-cdn.com/content/image/1-s2.0-S1872497321001654-mmc1.pdf<br>
+</li>
 </ul>
 
 <img src="img/lgmb.png" class="slide-logo r-stretch"><div class="footer footer-default">
@@ -643,9 +697,9 @@
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1600,
 
-        height: 700,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,

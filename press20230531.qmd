@@ -1,6 +1,9 @@
 ---
 title: "Accurate profiling of forensic autosomal STRs using the Oxford Nanopore Technologies MinION device"
-format: revealjs
+format: 
+ revealjs:
+  width: 1600
+  height: 900
 editor: visual
 footer: "31/05 | Marcel Ferreira"
 slide-number: true
@@ -11,11 +14,11 @@ bibliography: references.bib
 
 ## Paper
 
-[![](img/paper20230531.png)](https://www.sciencedirect.com/science/article/pii/S1872497321001654?via%3Dihub)
+[![-](img/paper20230531.png)](https://www.sciencedirect.com/science/article/pii/S1872497321001654?via%3Dihub)
 
 ## Oxford Nanopore Technologies (ONT)
 
-[![](img/ONT1.png)](https://www.nature.com/articles/s41587-021-01108-x)
+[![-](img/ONT1.png)](https://www.nature.com/articles/s41587-021-01108-x)
 
 ## Oxford Nanopore Technologies (ONT)
 
@@ -53,7 +56,57 @@ bibliography: references.bib
 
 ![Fig. 1. STR sequencing and profiling with STRspy](img/fig1.png)
 
-## Benchmarking
+## Methods
+
+-   Six NIST traceable standards and one Promega control (female n = 2; male n = 5) ;
+
+-   Promega PowerSeq 46GY System (PS4600);
+
+    -   15 or 30 cycles;
+
+-   Nanopore library preparation and sequencing;
+
+    -   Purified PCR products were multiplexed and prepared for nanopore sequencing;
+
+    -   vR9.4D flow cells (FLO-MIN106D, ONT);
+
+    -   MinION;
+
+## Methods - STRspy
+
+-   STR sequencing data for 1036 samples published under the STRSeq BioProject (NIST 1036);
+
+-   STR database used includes alleles for the 22 PowerSeq autosomal loci along with 500 bp flanks from hg19/GRCh37;
+
+-   **STRspy** accepts fastq or bam files;
+
+-   Users are also required to provide bed and fasta files for the STR database;
+
+-   **STRspy** executes the following three steps in a per sample manner;
+
+## Methods - **STRspy**
+
+1.  Basecalled reads are first aligned to the human reference genome (hg19/GRCh37) (`minimap2`). Subsequently, the mapped reads are automatically converted and sorted into a bam file (`samtools`);
+2.  Bam file is processed to extract reads that overlap `STR` loci of interest based on the locations specified in the user-provided bed file (`bedtools`). Extracted locus-specific reads are then mapped to the predefined collection of alleles (`minimap2`).
+
+## Methods - **STRspy**
+
+3.  Compute the number of reads in the sorted bam (`samtools`). Calculates locus-specific normalized read counts. Normalized read counts to rank the STR alleles at each locus and reports either a single allele (homozygous) or the top two alleles (heterozygous) using a threshold of 0.4;
+4.  `xAtlas` was used to detect SNPs within the flanking region in the STR database and region bed file. The vcf file was filtered to keep SNPs with p-value of 0.8 or higher. 30 cycles samples were subsampled to 1% of total mapped reads (`samtools`).
+
+## Methods - STRspy
+
+![Workflow](img/strspy.png)
+
+## Methods
+
+-   `Guppy` was used to basecalling (Q-score \> 7);
+
+-   Merged fastq files from the 7 samples amplified (15 and 30 cycles) were processed with **STRspy**;
+
+-   Manufacturer-validated genotypes served as the truth values for assessing the **STRspy** performance.
+
+## Results - Benchmarking
 
 ::: columns
 ::: {.column width="50%"}
@@ -65,7 +118,7 @@ bibliography: references.bib
 :::
 :::
 
-## Benchmarking
+## Results - Benchmarking
 
 ::: columns
 ::: {.column width="50%"}
@@ -81,29 +134,31 @@ $F1 score = \frac{2TP}{2TP + FP + FN}$
 :::
 :::
 
-## Slide 1
+## STR allele designations
 
-![Fig. 3. STR allele designations.](img/fig3.png)
+![Fig. 3. Heatmap comparison of STRspy predictions to manufacturer-verified length- and sequence-based genotypes.](img/fig3.png)
 
-## Slide 2
+## STRspy resolves isoalleles
 
 ![STRspy resolves isoalleles.](img/table1.png)
 
-## Slide 3
+## Genotyping errors
 
 ![Fig. 4. Genotyping errors. Part 1](img/fig4.png)
 
-## Slide 3
+## Genotyping errors
 
 ![Fig. 4. Genotyping errors. Part 2](img/fig4_2.png)
 
-## Slide 3
+## Genotyping errors
 
 ![Fig. 4. Genotyping errors. Part 3](img/fig4_3.png)
 
-## Slide 4
+## SNP benchmarking
 
 ![Table 2. SNP benchmarking.](img/table2.png)
+
+## Discussion
 
 ## Highlights
 
@@ -120,3 +175,5 @@ $F1 score = \frac{2TP}{2TP + FP + FN}$
 ## References
 
 -   https://www.youtube.com/watch?v=Kdsp6soqA7o
+-   https://github. com/unique379r/strspy
+-   https://ars.els-cdn.com/content/image/1-s2.0-S1872497321001654-mmc1.pdf\
