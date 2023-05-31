@@ -44,6 +44,8 @@ bibliography: references.bib
 
 -   As an alternative to conventional capillary electrophoresis (`CE`) techniques, forensic `STR` typing with next-generation sequencing (`NGS`) has gained popularity;
 
+-   `NGS` data can identify flanking area SNPs and distinguish isoalleles, revealing up to two times as many alleles than `CE` at some loci;
+
 ## Background
 
 -   This research evaluates the forensic utility of the newest and smallest accessible NGS platform, the Oxford Nanopore Technologies (`ONT`) MinION instrument;
@@ -144,15 +146,17 @@ $F1 score = \frac{2TP}{2TP + FP + FN}$
 
 ## Genotyping errors
 
-![Fig. 4. Genotyping errors. Part 1](img/fig4.png)
+![Fig. 4. Genotyping errors. Part 1 False negative genotype due to allele drop out at Penta E for NISTAc.](img/fig4.png)
 
 ## Genotyping errors
 
-![Fig. 4. Genotyping errors. Part 2](img/fig4_2.png)
+![Fig. 4. Genotyping errors. Part 2 - False positive genotype due to stutter artifacts at D22S1045 for
+the 2800 M. ](img/fig4_2.png)
 
 ## Genotyping errors
 
-![Fig. 4. Genotyping errors. Part 3](img/fig4_3.png)
+![Fig. 4. Genotyping errors. Part 3 - False positive genotype due to stutter artifacts at D22S1045 for
+the NISTd.](img/fig4_3.png)
 
 ## SNP benchmarking
 
