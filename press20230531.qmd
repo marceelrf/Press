@@ -182,8 +182,6 @@ $F1 score = \frac{2TP}{2TP + FP + FN}$
 
 -   These experiments will establish ONT-specific STR profiling methodologies and interpretation standards;
 
-## Discussion
-
 -   Cost limits sequence-based STR typing in routine forensic cases;
 
 -   Sequencing is expensive, but the ONT MinION technology offers greater resolution than typing methods and shorter turnaround time with on-site tests. These qualities would aid forensic investigations.
