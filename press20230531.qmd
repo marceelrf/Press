@@ -150,19 +150,43 @@ $F1 score = \frac{2TP}{2TP + FP + FN}$
 
 ## Genotyping errors
 
-![Fig. 4. Genotyping errors. Part 2 - False positive genotype due to stutter artifacts at D22S1045 for
-the 2800 M. ](img/fig4_2.png)
+![Fig. 4. Genotyping errors. Part 2 - False positive genotype due to stutter artifacts at D22S1045 for the 2800 M.](img/fig4_2.png)
 
 ## Genotyping errors
 
-![Fig. 4. Genotyping errors. Part 3 - False positive genotype due to stutter artifacts at D22S1045 for
-the NISTd.](img/fig4_3.png)
+![Fig. 4. Genotyping errors. Part 3 - False positive genotype due to stutter artifacts at D22S1045 for the NISTd.](img/fig4_3.png)
 
 ## SNP benchmarking
 
 ![Table 2. SNP benchmarking.](img/table2.png)
 
 ## Discussion
+
+-   Due to insufficient coverage, the 15-cycle dataset was skewed, hence the 30-cycle dataset provided more trustworthy genotypes;
+
+-   These results show that this portable, scalable, and quick sequencing technique could be very useful in future applications;
+
+-   Given the great coverage at 30 PCR cycles, a MinION flow cell may be able to sequence more samples;
+
+-   **STRspy** profiles STRs with exceptional accuracy using ONT sequencing data;
+
+-   **STRspy** used 30-cycle readings on standard R9 nanopore proteins to correctly genotype homopolymer-containing Penta D and Penta E despite ONT sequencing data biases;
+
+## Discussion
+
+-   Reducing the normalization cutoff value from 0.4 to 0.3 yielded the proper genotype, demonstrating that locus-specific normalization thresholds may be useful for assessing low-coverage samples;
+
+-   The user's STR database alleles determine **STRspy's** genotype predictions;
+
+-   If sequence-based allele information is available and presented consistently across loci, users can develop or expand STR databases;
+
+-   These experiments will establish ONT-specific STR profiling methodologies and interpretation standards;
+
+## Discussion
+
+-   Cost limits sequence-based STR typing in routine forensic cases;
+
+-   Sequencing is expensive, but the ONT MinION technology offers greater resolution than typing methods and shorter turnaround time with on-site tests. These qualities would aid forensic investigations.
 
 ## Highlights
 
