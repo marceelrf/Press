@@ -1,0 +1,4 @@
+- source: press20230531.qmd
+  netlify:
+    - id: 1f674944-e6a7-4e72-814c-449fb9933668
+      url: 'https://flourishing-beignet-195a2c.netlify.app'
